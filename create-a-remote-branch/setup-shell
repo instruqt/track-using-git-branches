@@ -1,0 +1,21 @@
+#!/bin/bash
+mkdir -p /opt/instruqt
+cd /opt/instruqt
+
+git init --bare remote-repository
+
+cd /root/my-repo
+git remote add origin /opt/instruqt/remote-repository
+
+git checkout -b awesome-feature
+
+cat > main.go <<EOF
+package main
+
+func main() {
+  fmt.Println("awesome")
+}
+EOF
+
+git add main.go
+git commit -m "This will be awesome"

@@ -1,0 +1,9 @@
+#!/bin/bash
+cd /root/my-repo
+BRANCH=$(git branch -a | grep "remotes/origin/awesome-feature")
+if [ -z $BRANCH ]; then
+  echo "DIAG: The awesome-feature branch does not exist remotely"
+  exit 1
+fi
+
+exit 0

@@ -1,0 +1,9 @@
+#!/bin/bash
+cd /root/my-repo
+BRANCH=$(git branch | grep "new-feature")
+if [ ! -z $BRANCH ]; then
+  echo "DIAG: There is still a branch named new-feature in the git repository"
+  exit 1
+fi
+
+exit 0

@@ -1,0 +1,223 @@
+type: track
+slug: using-git-branches
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/git.png
+title: Using Git branches
+teaser: Start using Git branches to empower your everyday development process.
+description: |-
+  Branching is a feature available in most modern version control systems.
+  But in some Version Control Systems this can be an expensive operation in both time and disk space.
+  In Git, branches are a part of your everyday development process.
+
+  When you want to add a new feature or fix a bug—no matter how big or how small—you spawn a new branch to encapsulate your changes.
+  This makes it harder for unstable code to get merged into the main code base.
+  It also gives you the chance to clean up your future's history before merging it into the main branch.
+tags:
+- git
+- version control
+challenges:
+- slug: git-branch
+  credits: 10
+  title: Git branch
+  teaser: Learn how to see which branches there are.
+  notes:
+  - type: text
+    title: Git branch
+    contents: |-
+      A branch represents an **independent line of development**.
+
+      You can think of them as a way to request a brand new **working directory**, **staging area**, and project **history**.
+  - type: text
+    title: Git branch
+    contents: |-
+      New commits are recorded in the history for the **current branch**.
+
+      This results in a **fork** in the history of the project.
+  - type: text
+    title: Git branch
+    contents: |-
+      The **git branch** command lets you **create**, **list**, **rename**, and **delete** branches.
+
+      It **does not** let you switch between branches or put a forked history back together again.
+
+      For this reason, git branch is **tightly integrated** with the **git checkout** and **git merge** commands.
+  - type: text
+    title: Git branch
+    contents: |-
+      With the **git branch** command you can **list all** of the branches in your repository.
+
+      This is synonymous with **git branch --list**.
+  assignment: |-
+    We have already put you in the my-repo repository.
+
+    **List** the local branches of the repository.
+  difficulty: basic
+  unlocks:
+  - create-a-branch
+  tabs:
+  - type: terminal
+    title: Shell
+    hostname: shell
+- slug: create-a-branch
+  credits: 10
+  title: Create a branch
+  teaser: Learn how to create your own branches to work on.
+  notes:
+  - type: text
+    title: Create branch
+    contents: |-
+      It's important to understand that branches are just **pointers to commits**.
+
+      When you create a branch, all Git needs to do is create a new pointer, it **does not change the repository** in any other way.
+  - type: text
+    title: Create branch
+    contents: |-
+      Creating a new branch is as simple as calling **git branch branch-name**.
+
+      Note that this **only creates the new branch**!
+  - type: text
+    title: Create branch
+    contents: |-
+      To start **adding commits** to it, you need to **select it** with git checkout, and then use the standard **git add** and **git commit** commands.
+  assignment: |-
+    **Create** a new branch called **first-branch**.
+  difficulty: basic
+  unlocks:
+  - rename-a-branch
+  tabs:
+  - type: terminal
+    title: Shell
+    hostname: shell
+- slug: rename-a-branch
+  credits: 10
+  title: Rename a branch
+  teaser: Learn how to change the name of a branch.
+  notes:
+  - type: text
+    title: Rename branch
+    contents: |-
+      You can **change the name** of your **local** branch by calling **git branch -m new-branch-name**.
+  assignment: |-
+    We have created a branch but made a mistake in naming it.
+
+    **Rename** the **newb-feature** branch to **new-feature**.
+  difficulty: basic
+  unlocks:
+  - delete-a-branch
+  tabs:
+  - type: terminal
+    title: Shell
+    hostname: shell
+- slug: delete-a-branch
+  credits: 10
+  title: Delete a branch
+  teaser: Learn how to delete a branch.
+  notes:
+  - type: text
+    title: Delete branch
+    contents: Once you’ve **finished working** on a branch and have **merged it** into the
+      main code base, you’re free to delete the branch without losing any history.
+  - type: text
+    title: Delete branch
+    contents: |-
+      To **delete** a branch, call **git branch -d branch-name**.
+      This command will delete a **local copy** of a branch.
+
+      The branch may **still exist in remote repos**!
+  - type: text
+    title: Delete branch
+    contents: |-
+      This is a "safe" operation in that Git **prevents** you from **deleting** the
+      branch if it has **unmerged changes**.
+  - type: text
+    title: Delete branch
+    contents: |-
+      To **force delete** the specified branch, even if it has unmerged changes use **git delete -D branch-name**.
+
+      This is the command to use if you want to **permanently throw away** all of the commits associated with a particular line of development.
+  assignment: |-
+    We don't want to keep working on the **new-feature** branch.
+
+    **Delete** the branch.
+  difficulty: basic
+  unlocks:
+  - create-a-remote-branch
+  tabs:
+  - type: terminal
+    title: Shell
+    hostname: shell
+- slug: create-a-remote-branch
+  credits: 10
+  title: Create a remote branch
+  teaser: Learn how to create branches in remote repositories.
+  notes:
+  - type: text
+    title: Create remote
+    contents: |-
+      So far these challenges have all used **local branch** operations.
+
+      The git branch command also works on **remote branches**.
+  - type: text
+    title: Create remote
+    contents: |-
+      In order to operate on remote branches, a **remote repository** must first be configured.
+
+      Then you can **push a copy** of the local branch to the remote repository.
+
+      ```
+      git branch branch-name
+      git push remote-repository branch-name
+      ```
+  assignment: |-
+    We want to collaborate on our just created **awesome-feature** branch.
+    We have already added a remote called origin to the repository for you.
+
+    **Push** the awesome-feature branch to the remote repository at **origin**.
+  difficulty: basic
+  unlocks:
+  - list-remote-branches
+  tabs:
+  - type: terminal
+    title: Shell
+    hostname: shell
+- slug: list-remote-branches
+  credits: 10
+  title: List remote branches
+  teaser: Learn how to see which branches there are remotely.
+  notes:
+  - type: text
+    title: List remote
+    contents: |-
+      To **list** the branches on your **remote repository** use **git branch -a**.
+  assignment: |-
+    **List** the **remote branches** to see if our awesome-feature has been created remotely.
+  difficulty: basic
+  unlocks:
+  - delete-a-remote-branch
+  tabs:
+  - type: terminal
+    title: Shell
+    hostname: shell
+- slug: delete-a-remote-branch
+  credits: 10
+  title: Delete a remote branch
+  teaser: Learn how to delete branches in your remote repository.
+  notes:
+  - type: text
+    title: Delete remote
+    contents: |-
+      To delete a remote branch execute **git push origin --delete branch-name**
+  assignment: |-
+    We are finished with our **awesome-feature** branch.
+
+    **Delete** the **remote** branch.
+  difficulty: basic
+  unlocks: []
+  tabs:
+  - type: terminal
+    title: Shell
+    hostname: shell
+developers:
+- erik@instruqt.com
+- bas@instruqt.com
+- niels@instruqt.com
+published: true

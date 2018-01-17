@@ -1,0 +1,8 @@
+#!/bin/bash
+COMMAND=$(cat /root/.bash_history | grep "^git branch -a$" | wc -l)
+if [ $COMMAND -eq 0 ]; then
+  echo "DIAG: The command to list remote git branches was not run"
+  exit 1
+fi
+
+exit 0

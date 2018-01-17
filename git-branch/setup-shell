@@ -1,0 +1,18 @@
+#!/bin/bash
+cd /root
+git init my-repo
+
+COMMAND="cd /root/my-repo"
+grep -q -F "$COMMAND" /root/.bashrc || echo "$COMMAND" >> /root/.bashrc
+
+cd /root/my-repo
+
+git config --global --add user.name instruqt
+git config --global --add user.email hello@instruqt.com
+
+cat > README.md <<EOF
+# My repo
+EOF
+
+git add .
+git commit -m "Initial commit"

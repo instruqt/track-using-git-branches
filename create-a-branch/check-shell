@@ -1,0 +1,9 @@
+#!/bin/bash
+cd /root/my-repo
+BRANCH=$(git branch | grep "first-branch")
+if [ -z $BRANCH ]; then
+  echo "DIAG: There is no branch named first-branch in the git repository"
+  exit 1
+fi
+
+exit 0

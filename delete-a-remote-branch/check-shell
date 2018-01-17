@@ -1,0 +1,8 @@
+#!/bin/bash
+BRANCH=$(git branch -a | grep "remotes/origin/awesome-feature")
+if [ ! -z $BRANCH ]; then
+  echo "DIAG: The awesome-feature branch still exists in the remote repository"
+  exit 1
+fi
+
+exit 0

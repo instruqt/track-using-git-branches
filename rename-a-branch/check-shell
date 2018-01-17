@@ -1,0 +1,15 @@
+#!/bin/bash
+# Check that the rename function was called
+COMMAND=$(cat /root/.bash_history | grep "^git branch -m" | wc -l)
+if [ $COMMAND -eq 0 ]; then
+  echo "DIAG: The git branch rename command was not run."
+  exit 1
+fi
+
+# Check that there is a branch named new-feature
+cd /root/my-repo
+BRANCH=$(git branch | grep "new-feature")
+if [ -z $BRANCH ]; then
+  echo "DIAG: There is no branch named new-feature in the git repository"
+  exit 1
+fi
